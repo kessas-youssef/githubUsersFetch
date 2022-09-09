@@ -1,3 +1,5 @@
+/* AJAX Procedure */
+
 // Select buttons
 const [allUsersBtn, oneUserInput] = [document.querySelector('.nav__btn--allUsers'), document.querySelector('.nav__input')]
 

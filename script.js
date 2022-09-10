@@ -14,6 +14,7 @@ allUsersBtn.addEventListener('click', () => getData((users) => {
         <ul class="user__list">
         <li class="user__infos">Login : ${user.login}</li>
         <li class="user__infos">ID : ${user.id}</li>
+        <li class="user__infos">URL : <a href="${user.html_url}" target="_blank">${user.html_url}</a></li>
         </ul>
         </div>`
     });
@@ -34,6 +35,7 @@ oneUserInput.addEventListener('input', () => getData((user) => {
             <ul class="user__list">
             <li class="user__infos">Login : ${user.login}</li>
             <li class="user__infos">ID : ${user.id}</li>
+            <li class="user__infos">URL : <a href="${user.html_url}" target="_blank">${user.html_url}</a></li>
             </ul>
             </div>`
     document.querySelector('main').innerHTML += output

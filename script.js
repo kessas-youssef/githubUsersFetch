@@ -5,7 +5,7 @@ const [allUsersBtn, oneUserInput] = [document.querySelector('.nav__btn--allUsers
 
 
 // Get all users
-allUsersBtn.addEventListener('click', () => getData((users) => {
+allUsersBtn.addEventListener('click', () => getData( users => {
     let output = ''
     output += '<h1>All USERS</h1>'
     users.forEach(user => {
@@ -45,17 +45,18 @@ oneUserInput.addEventListener('input', () => getData((user) => {
 
 
 function getData(whatToDo, source) {
-    emptyMain()
     const xhr = new XMLHttpRequest()
     xhr.open('GET', source, true)
-
+    
     xhr.onload = function () {
         if (this.status == 200) {
+            emptyMain()
             const data = JSON.parse(this.responseText)
             whatToDo(data)
         }
         else if (this.status == 404) {
-            document.querySelector('main').innerHTML += '<h1 class="errorNotFound"> Not Found!</h1'
+            emptyMain()
+            document.querySelector('main').innerHTML += '<h1 class="errorNotFound"> Not Found!</h1>'
         }
     }
     xhr.send()
